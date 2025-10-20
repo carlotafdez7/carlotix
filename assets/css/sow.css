@@ -4,22 +4,26 @@ header {
 }
 
 section {
-  height: 90vh;
+  height: 150vh;
 }
+
 nav {
   position: fixed;
-  top: 0;
+  top: 5;
   z-index: 1000;
 }
+
 nav ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 100;
   display: flex;
 }
+
 nav ul li {
   margin-right: 1rem;
 }
+
 nav ul li a {
   text-decoration: none;
   color: #333;
@@ -30,29 +34,300 @@ nav ul li a {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #222;
+  background: #3c1591;
   color: #fff;
 }
+
 .title {
   font-size: 3rem;
   text-transform: uppercase;
   opacity: 0;
   animation: fadeIn 2s forwards ease-in;
 }
+
 @keyframes fadeIn {
   to {
     opacity: 1;
   }
 }
 
-section {
-}
+*/ Esto lo queria poner para editar el iframe de la primera web y hacerlo responsive */ section {}
 
 #site-awwwards {
+  iframe.embedded-site {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    /* aspecto 16:9; ajusrlo como yo quiera */
+    position: relative;
+  }
+
+  iframe.embedded-site iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 h1 {
- font-family: "Zen Dots", sans-serif;
+  font-family: "Zen Dots", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+/* Análisis 1 css correspondiente del texto en columnas */
+/* Contenedor general */
+.analysis-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título */
+.analysis-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #111;
+}
+
+/* Texto en columnas */
+.analysis-text {
+  columns: 1;
+  column-gap: 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #222;
+  text-align: justify;
+
+  /* Animación CSS */
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+@media (min-width: 800px) {
+  .analysis-text {
+    columns: 2;
+  }
+}
+
+/* Animación fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Análisis 2  css correspondiente del texto en columnas */
+.analysis-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título */
+.analysis-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #111;
+}
+
+/* Texto en columnas */
+.analysis-text {
+  columns: 1;
+  column-gap: 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #222;
+  text-align: justify;
+
+  /* Animación CSS */
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+@media (min-width: 800px) {
+  .analysis-text {
+    columns: 2;
+  }
+}
+
+/* Animación fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo de enlaces */
+.analysis-text a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.analysis-text a:hover {
+  text-decoration: underline;
+}
+
+/* Análisis 3  css correspondiente del texto en columnas */
+.analysis-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Título de cada análisis */
+.analysis-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Contenedor iframe uniforme */
+.iframe-container {
+  width: 100%;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+/* Texto en columnas */
+.analysis-text {
+  columns: 1;
+  column-gap: 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #222;
+  text-align: justify;
+
+  /* Fade-in CSS */
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+@media (min-width: 800px) {
+  .analysis-text {
+    columns: 2;
+  }
+}
+
+/* Animación fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo de enlaces */
+.analysis-text a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.analysis-text a:hover {
+  text-decoration: underline;
+}
+
+/* Análisis 4  css correspondiente del texto en columnas */
+.analysis-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título de cada análisis */
+.analysis-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Contenedor iframe uniforme */
+.iframe-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 600px;
+}
+
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Texto en columnas uniforme */
+.analysis-text {
+  max-width: 100%;
+  columns: 1;
+  column-gap: 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #222;
+  text-align: justify;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+@media (min-width: 800px) {
+  .analysis-text {
+    columns: 2;
+  }
+}
+
+/* Animación fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo de enlaces */
+.analysis-text a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.analysis-text a:hover {
+  text-decoration: underline;
 }
