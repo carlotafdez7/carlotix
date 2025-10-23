@@ -1,329 +1,282 @@
 header {
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-section {
-  height: 150vh;
-}
-
-nav {
-  justify-self: center;
-  background-color: #fff;
   position: fixed;
-  top: 0.5rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  /* barra fina */
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
   z-index: 1000;
-  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* centra verticalmente todo el contenido */
+}
 
+/* NAV */
+nav {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  /* hace que el nav ocupe toda la altura del header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 🔹 centra el ul dentro del nav */
 }
 
 nav ul {
   list-style: none;
-  margin: 0.5rem;
+  margin: 0;
   padding: 0;
   display: flex;
-  gap:4rem;
-  margin:0.2rem;
-  margin-left:4rem;
-  margin-right: 4rem;
+  justify-content: center;
+  align-items: center;
+  /* 🔹 centra los enlaces verticalmente */
+  gap: 5rem;
+  height: 100%;
 }
 
-nav ul li {
-  margin:0.2rem;
-  margin-right: 1rem;
-}
-
+/* ENLACES */
 nav ul li a {
-  font-family: "Helvetica";
-  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
   text-decoration: none;
-  color: #333;
+  color: #111;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  /* 🔹 centra el texto dentro del li */
+  height: 100%;
+  /* ocupa toda la altura del header */
 }
 
+nav ul li a:hover {
+  color: #0077ff;
+  transform: scale(1.05);
+}
+
+/* BODY */
+body {
+  margin: 0;
+  padding-top: 55px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* SCROLL SUAVE */
+html {
+  scroll-behavior: smooth;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 2rem;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==== COVER PRINCIPAL ==== */
 .cover {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #3c1591;
-  color: #fff;
+  /* pantalla completa */
+  /* fondo negro */
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  /* 🔹 tipografía moderna */
 }
 
+.cover-content {
+  text-align: center;
+}
+
+/* ====== TÍTULO PRINCIPAL ====== */
 .title {
-  font-size: 3rem;
-  text-transform: uppercase;
-  opacity: 0;
-  animation: fadeIn 2s forwards ease-in;
+  font-size: 5rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #fff;
+  /* cursor blanco sutil */
+  width: 0;
+  background: linear-gradient(270deg,
+      #00b4ff,
+      #0077ff,
+      #7b00ff,
+      #00f0ff,
+      #0077ff,
+      #00b4ff);
+  /* 🔹 degradado con más tonos azules, violetas y cianes */
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    typing 3.5s steps(35, end) forwards,
+    blink 0.8s step-end infinite alternate,
+    gradientFlow 6s ease infinite;
+  letter-spacing: 2px;
 }
 
-@keyframes fadeIn {
+/* ====== ANIMACIONES ====== */
+
+/* Efecto máquina de escribir */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
   to {
-    opacity: 1;
+    width: 30ch;
+  }
+
+  /* ajusta según el texto */
+}
+
+/* Cursor parpadeante */
+@keyframes blink {
+  50% {
+    border-color: transparent;
   }
 }
 
-#site-awwwards {
-  iframe.embedded-site {
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-    /* aspecto 16:9; ajusrlo como yo quiera */
-    position: relative;
+/* Degradado dinámico más fluido */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
   }
 
-  iframe.embedded-site iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-h1 {
-  font-family: "Zen Dots", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.8rem;
+  }
 }
 
-/* Análisis 1 css correspondiente del texto en columnas */
+/*         SECCIÓN BASIS - ESTILOS        */
+/* ====================================== */
+
+.web-section {
+  margin-top: 8rem;
+  /* 🔹 margen igual arriba y abajo */
+  padding-top: 4rem;
+  text-align: center;
+}
+
+.web-section h2 {
+  font-family: 'Zen Dots', sans-serif;
+  /* fuente futurista */
+  font-size: 3.5rem;
+  /* 🔹 más grande y llamativo */
+  color: #0077ff;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  letter-spacing: 3px;
+  /* 🔹 un poco más de espacio entre letras */
+  text-transform: uppercase;
+}
+
+/*           IFRAMES A PANTALLA COMPLETA  */
+/* ====================================== */
+
+.iframe-container {
+  position: relative;
+  width: 100vw;
+  /* 🔹 ocupa todo el ancho visible del navegador */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  /* 🔹 corrige el centrado para ocupar toda la pantalla */
+  margin-right: -50vw;
+  border-radius: 0;
+  /* 🔹 sin bordes redondeados para un look full-screen */
+  overflow: hidden;
+  box-shadow: none;
+  /* 🔹 limpio, sin sombra */
+}
+
+.iframe-container iframe {
+  width: 100%;
+  height: 100vh;
+  /* 🔹 ocupa toda la altura visible del navegador */
+  border: none;
+}
+
+
+/* ====== SUBTÍTULO DE ANÁLISIS "basis: analisis de la web" ====== */
+.analysis-title {
+  font-family: 'Poppins', sans-serif;
+  /* 🔹 más legible y moderna */
+  font-size: 0.5.rem;
+  /* 🔹 más pequeña que el título principal */
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-top: 3rem;
+  /* 🔹 espacio sobre las tarjetas */
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+}
+
+
 /* Contenedor general */
 .analysis-section {
-  padding: 4rem 2rem;
   max-width: 1200px;
+  /* 🔹 Antes era 1400px, ahora un poco más estrecho */
   margin: 0 auto;
+  padding: 2rem 1rem;
+  /* 🔹 Añadimos margen lateral para aire */
+  background-color: #fafafa;
 }
 
-/* Título */
-.analysis-title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: #111;
-}
-
-/* Texto en columnas */
-.analysis-text {
-  columns: 1;
-  column-gap: 2rem;
-  line-height: 1.6;
-  font-size: 1rem;
-  color: #222;
-  text-align: justify;
-
-  /* Animación CSS */
-  opacity: 0;
-  animation: fadeIn 1.5s ease-out forwards;
-}
-
-@media (min-width: 800px) {
-  .analysis-text {
-    columns: 2;
-  }
-}
-
-/* Animación fade-in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-<<<<<<< HEAD
-/* Análisis 2  css correspondiente del texto en columnas */
-.analysis-section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Título */
-.analysis-title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: #111;
-}
-
-/* Texto en columnas */
-.analysis-text {
-  columns: 1;
-  column-gap: 2rem;
-  line-height: 1.6;
-  font-size: 1rem;
-  color: #222;
-  text-align: justify;
-
-  /* Animación CSS */
-  opacity: 0;
-  animation: fadeIn 1.5s ease-out forwards;
-}
-
-@media (min-width: 800px) {
-  .analysis-text {
-    columns: 2;
-  }
-}
-
-/* Animación fade-in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Estilo de enlaces */
-.analysis-text a {
-  color: #0077cc;
-  text-decoration: none;
-}
-
-.analysis-text a:hover {
-  text-decoration: underline;
-}
-
-/* Análisis 3  css correspondiente del texto en columnas */
-.analysis-section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-/* Título de cada análisis */
-.analysis-title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-weight: 600;
-  color: #111;
-}
-
-/* Contenedor iframe uniforme */
+/* IFRAME */
 .iframe-container {
   width: 100%;
-  margin-bottom: 3rem;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-}
-
-/* Texto en columnas */
-.analysis-text {
-  columns: 1;
-  column-gap: 2rem;
-  line-height: 1.6;
-  font-size: 1rem;
-  color: #222;
-  text-align: justify;
-
-  /* Fade-in CSS */
-  opacity: 0;
-  animation: fadeIn 1.5s ease-out forwards;
-}
-
-@media (min-width: 800px) {
-  .analysis-text {
-    columns: 2;
-  }
-}
-
-/* Animación fade-in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Estilo de enlaces */
-.analysis-text a {
-  color: #0077cc;
-  text-decoration: none;
-}
-
-.analysis-text a:hover {
-  text-decoration: underline;
-}
-
-/* Análisis 4  css correspondiente del texto en columnas */
-.analysis-section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Título de cada análisis */
-.analysis-title {
-  font-size: 2rem;
-  text-align: center;
+  border-radius: 20px;
   margin-bottom: 2rem;
-  font-weight: 600;
-  color: #111;
-}
-
-/* Contenedor iframe uniforme */
-.iframe-container {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto 3rem auto;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  height: 600px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .iframe-container iframe {
   width: 100%;
   height: 100%;
   border: none;
-  display: block;
 }
 
-/* Texto en columnas uniforme */
-.analysis-text {
-  max-width: 100%;
-  columns: 1;
-  column-gap: 2rem;
-  line-height: 1.6;
-  font-size: 1rem;
+/* TÍTULO ANIMADO */
+.analysis-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1.5rem 0 2rem;
+  position: relative;
+  animation: fadeIn 1.2s ease-in-out;
   color: #222;
-  text-align: justify;
-  margin: 0 auto;
-  opacity: 0;
-  animation: fadeIn 1.5s ease-out forwards;
 }
 
-@media (min-width: 800px) {
-  .analysis-text {
-    columns: 2;
-  }
-}
-
-/* Animación fade-in */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
 
   to {
@@ -332,126 +285,565 @@ h1 {
   }
 }
 
-/* Estilo de enlaces */
-.analysis-text a {
-  color: #0077cc;
-  text-decoration: none;
+/* CONTENEDOR GENERAL */
+.analysis-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  background-color: #fafafa;
 }
 
-.analysis-text a:hover {
-  text-decoration: underline;
+/* IFRAME */
+.iframe-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/*tarjetas de analisis*
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-/* --- TÍTULOS --- */
+/* CONTENEDOR GENERAL */
+.analysis-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  background-color: #fafafa;
+  margin-bottom: 6rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* IFRAME */
+.iframe-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* TÍTULO PRINCIPAL CON EFECTO MÁQUINA DE ESCRIBIR */
 .analysis-title {
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: #111;
+  font-size: 2rem;
+  color: #222;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #222;
+  width: 0;
+  margin: 1.5rem auto 2rem;
+  animation: typing 3s steps(30, end) forwards, blink 0.8s step-end infinite alternate;
 }
 
-/* --- CONTENEDOR DE TARJETAS --- */
-.analysis-container {
+/* Animaciones */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 23ch;
+  }
+
+  /* 🔹 aumentado para que se vea todo el texto */
+}
+
+@keyframes blink {
+  from {
+    border-color: transparent;
+  }
+
+  to {
+    border-color: #222;
+  }
+}
+
+/*   TITULO "NOOMO AGENCY: ANALISIS..."   */
+/* ====================================== */
+
+#Noomoagency .analysis-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  /* 🔹 tamaño flexible: crece con el ancho */
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+  white-space: normal;
+  /* 🔹 permite saltos de línea si es necesario */
+  overflow-wrap: break-word;
+  /* 🔹 evita que se corte el texto */
+
+  /* ANIMACIÓN MAQUINA DE ESCRIBIR - NOOMO AGENCY */
+  /* ====================================== */
+
+  #Noomoagency .analysis-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.6rem);
+    /* 🔹 tamaño adaptable */
+    font-weight: 600;
+    color: #0077ff;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    /* 🔹 mantiene el efecto máquina */
+    overflow: hidden;
+    /* 🔹 oculta texto mientras se “escribe” */
+    border-right: 3px solid #0077ff;
+    /* 🔹 cursor de escritura */
+    width: 0;
+    /* 🔹 empieza invisible */
+    animation: typing-noomo 4s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+  }
+
+  /* Animación de escritura */
+  @keyframes typing-noomo {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+
+  /* Parpadeo del cursor */
+  @keyframes blink-caret {
+
+    from,
+    to {
+      border-color: transparent;
+    }
+
+    50% {
+      border-color: #0077ff;
+    }
+  }
+
+  /* 🔹 versión responsive (si se corta en móviles, deja que salte de línea) */
+  @media (max-width: 600px) {
+    #Noomoagency .analysis-title {
+      white-space: normal;
+      border-right: none;
+      animation: none;
+    }
+  }
+
+}
+
+
+
+/*           TARJETAS DE ANÁLISIS         */
+/* ====================================== */
+
+.cards-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* 3 columnas iguales */
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1300px;
-  /* ancho máximo centrado */
-  margin: 0 auto 4rem;
-  box-sizing: border-box;
+  grid-template-columns: repeat(4, 1fr);
+  /* 🔹 4 columnas por fila */
+  gap: 2rem;
+  /* 🔹 espacio entre tarjetas */
+  justify-items: center;
+  max-width: 1400px;
+  /* 🔹 ancho total de la cuadrícula */
+  margin: 0 auto;
+  padding: 2rem 3rem;
 }
 
-/* --- TARJETA BASE --- */
+/* TARJETAS */
 .card {
-  border: 2px solid #ccc;
-  border-radius: 20px;
-  padding: 1.2rem 1.5rem;
-  background-color: #fafafa;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 1.2rem;
+  width: 100%;
+  max-width: 320px;
+  min-height: 260px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 160px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* --- TEXTO Y TÍTULOS --- */
-.card h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  color: #222;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.3rem;
-  text-align: center;
-}
-
-.card p {
+/* TÍTULOS DE TARJETAS */
+.card-title {
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  /* 🔹 negro por defecto */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* EFECTO HOVER AZUL CON BRILLO */
+.card-title:hover {
+  color: #0077ff;
+  /* 🔹 azul principal */
+  text-shadow: 0 0 6px rgba(0, 119, 255, 0.6);
+}
+
+/* TEXTO DE LAS TARJETAS */
+.card p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
   line-height: 1.5;
-  color: #444;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 85%;
+  color: #333;
+  text-align: justify;
 }
 
-/* --- TARJETA DE CONCLUSIÓN --- */
-.conclusion {
-  grid-column: 1 / span 3;
-  /* ocupa las 3 columnas */
-  background-color: #f2f2f2;
-  border-color: #aaa;
-  text-align: center;
-  padding: 2rem;
-  min-height: 220px;
-}
-
-.conclusion h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-
-.conclusion p {
-  max-width: 900px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 1000px) {
-  .analysis-container {
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .cards-container {
     grid-template-columns: repeat(2, 1fr);
-    /* 2 por fila */
-  }
-
-  .conclusion {
-    grid-column: 1 / span 2;
+    /* 🔹 2 por fila en pantallas medianas */
   }
 }
 
-@media (max-width: 700px) {
-  .analysis-container {
+@media (max-width: 768px) {
+  .cards-container {
     grid-template-columns: 1fr;
-    /* 1 por fila */
-    padding: 1rem;
-  }
-
-  .card {
-    min-height: 150px;
-    padding: 1rem;
-  }
-
-  .conclusion {
-    grid-column: 1 / span 1;
+    /* 🔹 1 por fila en móvil */
   }
 }
-=======
->>>>>>> a46d5e1bd65ddf5249c466eefafe23db0c770b30
+
+/* ====== ENLACE ESTILIZADO DENTRO DE TARJETA ====== */
+.link-button {
+  color: #0077ff;
+  /* 🔹 azul principal */
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  /* 🔹 subrayado separado del texto */
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.link-button:hover {
+  color: #005dcc;
+  /* 🔹 tono azul más oscuro al pasar el ratón */
+  text-decoration-color: #005dcc;
+}
+
+/*   ANIMACIÓN FADE-IN LETRA A LETRA - INSIDE THE HEAD */
+/* ====================================== */
+
+#Insidethehead .analysis-title {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: visible;
+  /* 🔹 evita recortes */
+}
+
+#Insidethehead .fade-text {
+  display: inline-block;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 600;
+  color: #0077ff;
+  letter-spacing: 1px;
+  white-space: normal;
+  /* 🔹 permite saltos si hace falta */
+  text-align: center;
+  max-width: 90%;
+  /* 🔹 da aire lateral, evita corte */
+  animation: fadeInLetters 2.8s ease forwards;
+}
+
+/* Animación suave de aparición */
+@keyframes fadeInLetters {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    letter-spacing: 5px;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 1px;
+  }
+}
+
+/* Línea de brillo final (subrayado animado) */
+#Insidethehead .fade-text::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  margin: 0.4rem auto 0 auto;
+  background: linear-gradient(90deg, transparent, #0077ff, transparent);
+  animation: fadeLine 2s ease 2.5s forwards;
+}
+
+@keyframes fadeLine {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* ====================================== */
+/* COLORES PERSONALIZADOS POR CADA WEB    */
+/* ====================================== */
+
+/* 🔵 BASIS */
+#basis h2,
+#basis .analysis-title,
+#basis .analysis-title .tw {
+  color: #0077ff;
+  border-right-color: #0077ff;
+}
+
+#basis .fade-text::after {
+  background: linear-gradient(90deg, transparent, #0077ff, transparent);
+}
+
+/* 🔷 NOOMO AGENCY */
+#Noomoagency h2,
+#Noomoagency .analysis-title,
+#Noomoagency .analysis-title .tw {
+  color: #aab9fd;
+  /* azul claro */
+  border-right-color: #aab9fd;
+}
+
+#Noomoagency .fade-text::after {
+  background: linear-gradient(90deg, transparent, #62b6ff, transparent);
+}
+
+/* 🍷 INSIDE THE HEAD */
+#Insidethehead h2,
+#Insidethehead .analysis-title,
+#Insidethehead .fade-text {
+  color: #ffffff;
+  /* blanco */
+}
+
+#Insidethehead .fade-text::after {
+  background: linear-gradient(90deg, transparent, #7b1e3f, transparent);
+}
+
+/* Animación específica para el subrayado burdeos */
+@keyframes fadeLineBurgundy {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* ============================== */
+/* TÍTULOS PRINCIPALES DE CADA WEB */
+/* ============================== */
+
+.web-section>h2 {
+  text-align: center;
+  font-family: 'Zen Dots', sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  letter-spacing: 1px;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/*     COLORES PERSONALIZADOS DE LINKS DE LAS TARJETAS    */
+/* ====================================== */
+
+/* Estilo general de los enlaces de las tarjetas */
+.link-button {
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Línea animada bajo el texto */
+.link-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-button:hover::after {
+  width: 100%;
+}
+
+/* 🔵 BASIS */
+#basis .link-button {
+  color: #0077ff;
+}
+
+#basis .link-button:hover {
+  color: #0077ff;
+  text-shadow: 0 0 6px rgba(0, 119, 255, 0.4);
+}
+
+/* 🔷 NOOMO AGENCY */
+#Noomoagency .link-button {
+  color: #62b6ff;
+}
+
+#Noomoagency .link-button:hover {
+  color: #62b6ff;
+  text-shadow: 0 0 6px rgba(98, 182, 255, 0.4);
+}
+
+/* 🍷 INSIDE THE HEAD */
+#Insidethehead .link-button {
+  color: #190c52;
+}
+
+#Insidethehead .link-button:hover {
+  color: #190c52;
+  text-shadow: 0 0 6px rgba(123, 30, 63, 0.4);
+}
+
+
+/*video de fondo*/
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.6) blur(2px);
+  background-color: black;
+  /* por si tarda en cargar */
+}
+
+/*  ESTILOS ESPECÍFICOS: PONPON MANIA  */
+/* ====================================== */
+
+/* Título principal encima del iframe */
+#Ponponmania h2 {
+  text-align: center;
+  font-family: 'Zen Dots', sans-serif;
+  font-size: clamp(3rem, 4vw, 3rem);
+  text-transform: uppercase;
+  color: #ff5aa5;
+  /* magenta coral */
+  letter-spacing: 1px;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 10px rgba(255, 90, 165, 0.3);
+
+  /* PONPON MANIA – TÍTULO FIJO SIN CORTE */
+  /* ====================================== */
+
+  #Ponponmania .analysis-title {
+    display: block;
+    font-size: clamp(1rem, 2vw, 2rem);
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    color: #ff5aa5;
+    margin: 2.5rem auto;
+    white-space: normal;
+    /* ✅ permite saltos de línea */
+    overflow: visible;
+    /* ✅ evita que se oculte parte del texto */
+    width: auto;
+    /* ✅ ajusta automáticamente al contenido */
+    border: none;
+    /* elimina cualquier cursor o línea */
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* Enlaces dentro de las tarjetas */
+#Ponponmania .link-button {
+  color: #ff5aa5;
+}
+
+#Ponponmania .link-button:hover {
+  color: #ff5aa5;
+  text-shadow: 0 0 8px rgba(255, 90, 165, 0.5);
+}
+
+/* Tarjetas (si quieres un ligero cambio de fondo según la web) */
+#Ponponmania .card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid rgba(255, 90, 165, 0.2);
+  box-shadow: 0 0 15px rgba(255, 90, 165, 0.15);
+}
+
+#Ponponmania .card-title {
+  color: #111;
+  border-bottom: 2px solid rgba(255, 90, 165, 0.3);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Opcional: color de sombra del iframe */
+#Ponponmania .iframe-container {
+  box-shadow: 0 0 30px rgba(255, 90, 165, 0.35);
+}
+
+/* 🦶 ESTILO DEL FOOTER                   */
+/* ====================================== */
+
+footer {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  padding: 1.5rem 0;
+  margin-top: 4rem;
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+footer p {
+  margin: 0;
+  opacity: 0.9;
+}
